@@ -1,0 +1,13 @@
+{
+  "profile": "performance",
+  "patch_tier_5": true,
+  "target_resolution": "480p",
+  "upscaling_mode": "bilinear",
+  "deferred_distance": 4,
+  "reflections": "low",
+  "shadows": "low",
+  "volumetric_fog": "low",
+  "clouds": "low",
+  "block_lights": "off",
+  "bloom": false
+}
