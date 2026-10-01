@@ -14,11 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache preloader download
-        uses: actions/cache@v4
-        with:
-          path: build/_deps
-          key: deps-${{ hashFiles('CMakeLists.txt') }}
+      - name: Get Preloader Android
+        run: |
+          git clone --depth 1 \
+            --branch 0.2.3 \
+            https://github.com/LiteLDev/PreLoader.git \
+            preloader-android
 
       - name: Configure
         run: |
@@ -34,10 +35,10 @@ jobs:
       - name: Package
         run: |
           mkdir -p dist/VVOptimizer
-          cp build/libVVOptimizer.so manifest.json dist/VVOptimizer/
+          cp build/libvv_optimizer.so manifest.json dist/VVOptimizer/
 
           $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip \
-            dist/VVOptimizer/libVVOptimizer.so
+            dist/VVOptimizer/libvv_optimizer.so
 
           (cd dist && zip -r VVOptimizer.zip VVOptimizer)
 
