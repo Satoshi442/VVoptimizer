@@ -1,0 +1,8 @@
+{
+  "type": "preload-native",
+  "name": "VV Optimizer",
+  "author": "Custom",
+  "version": "0.1.0",
+  "entry": "libvv_optimizer.so",
+  "minecraft_versions": []
+}
